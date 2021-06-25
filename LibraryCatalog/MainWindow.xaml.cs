@@ -23,12 +23,25 @@ namespace LibraryCatalog
     /// </summary>
     public partial class MainWindow : Window
     {
-        string filePath;
-        List<TextBox> boxes = new List<TextBox>();
+        private string filePath;
+        private List<TextBox> boxes = new List<TextBox>();
 
         public MainWindow()
         {
             InitializeComponent();
+
+            boxes.Add(BookName);
+            boxes.Add(BookAuthor);
+            boxes.Add(BookIllustrator);
+            boxes.Add(BookPublisher);
+            boxes.Add(BookYear);
+            boxes.Add(PuzzleName);
+            boxes.Add(PuzzleElements);
+            boxes.Add(PuzzleCompany);
+            boxes.Add(TableName);
+            boxes.Add(TableDeveloper);
+            boxes.Add(TableGameplay);
+            boxes.Add(TablePlayers);
         }
 
         private void BookBtn_Click(object sender, RoutedEventArgs e)
@@ -54,20 +67,6 @@ namespace LibraryCatalog
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            boxes.Clear();
-            boxes.Add(BookName);
-            boxes.Add(BookAuthor);
-            boxes.Add(BookIllustrator);
-            boxes.Add(BookPublisher);
-            boxes.Add(BookYear);
-            boxes.Add(PuzzleName);
-            boxes.Add(PuzzleElements);
-            boxes.Add(PuzzleCompany);
-            boxes.Add(TableName);
-            boxes.Add(TableDeveloper);
-            boxes.Add(TableGameplay);
-            boxes.Add(TablePlayers);
-
             try
             {
                 Convert.ToInt32(BookYear.Text);
@@ -87,28 +86,14 @@ namespace LibraryCatalog
                     }
                 }
             }
-            catch (Exception ex)
+            catch(FormatException)
             {
-                MessageBox.Show("Please, use int, not string!");
+                MessageBox.Show("Please, use INT, not STRING!");
             }
         }
 
         private void OpenBtn_Click(object sender, RoutedEventArgs e)
         {
-            boxes.Clear();
-            boxes.Add(BookName);
-            boxes.Add(BookAuthor);
-            boxes.Add(BookIllustrator);
-            boxes.Add(BookPublisher);
-            boxes.Add(BookYear);
-            boxes.Add(PuzzleName);
-            boxes.Add(PuzzleElements);
-            boxes.Add(PuzzleCompany);
-            boxes.Add(TableName);
-            boxes.Add(TableDeveloper);
-            boxes.Add(TableGameplay);
-            boxes.Add(TablePlayers);
-
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Text file (*.txt)|*.txt";
             if (openFileDialog.ShowDialog() == true)
