@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#FF232020">
     <Grid>
+        <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Background="#FF232020" Foreground="White">
+            <MenuItem x:Name="MenuFile" Header="File" BorderBrush="White" Foreground="White">
+                <MenuItem x:Name="SaveBtn" Header="Save" Background="#FF232020" Click="SaveBtn_Click" ></MenuItem>
+                <MenuItem x:Name="OpenBtn" Header="Open" Background="#FF232020" Click="OpenBtn_Click" ></MenuItem>
+                <MenuItem x:Name="DeleteBtn" Header="Delete" Background="#FF232020" Click="DeleteBtn_Click" ></MenuItem>
+            </MenuItem>
+        </Menu>
         <Grid x:Name="ButtonGrid" HorizontalAlignment="Center" Height="80" Margin="10,0" VerticalAlignment="Top" Width="772">
             <Button x:Name="BookBtn" Content="Book" HorizontalAlignment="Left" Margin="150,30,0,0" VerticalAlignment="Top" Width="75" Click="BookBtn_Click" Background="#FF6151AA" BorderBrush="White" Foreground="White"/>
             <Button x:Name="PuzzleBtn" Content="Puzzle" HorizontalAlignment="Left" Margin="350,30,0,0" VerticalAlignment="Top" Width="75" Click="PuzzleBtn_Click" Background="#FF6151AA" BorderBrush="White" Foreground="White"/>
