@@ -8,6 +8,31 @@ using System.Windows.Controls;
 
 namespace LibraryCatalogLibrary
 {
+
+    public static class ObjectMaker
+    {
+        public static StorageObject Make(string pieceCode, string Name, List<TextBox> boxes)
+        {
+            StorageObject obj = null;
+
+            switch (pieceCode)
+            {
+                case "Book":
+                    obj = new Book(Name, boxes);
+                    break;
+
+                case "Puzzle":
+                    obj = new Puzzle(Name, boxes);
+                    break;
+
+                case "Table":
+                    obj = new TableGame(Name, boxes);
+                    break;
+            }
+            return obj;
+        }
+    }
+
     public abstract class StorageObject
     {
         protected string name;
@@ -38,7 +63,7 @@ namespace LibraryCatalogLibrary
 
         public override bool Check(string newName)
         {
-            if (bookName != null && bookAuthor != null && bookPublisher != null)
+            if (bookName != "" && bookAuthor != "" && bookPublisher != "")
                 return true;
             else
                 return false;
@@ -60,7 +85,7 @@ namespace LibraryCatalogLibrary
 
         public override bool Check(string newName)
         {
-            if (puzzleName != null && puzzleCompany != null)
+            if (puzzleName != "" && puzzleCompany != "")
                 return true;
             else
                 return false;
@@ -84,7 +109,7 @@ namespace LibraryCatalogLibrary
 
         public override bool Check(string newName)
         {
-            if (tableName != null && tableDeveloper != null && tableGameplay != null && tablePlayers != null)
+            if (tableName != "" && tableDeveloper != "" && tableGameplay != "" && tablePlayers != "")
                 return true;
             else
                 return false;

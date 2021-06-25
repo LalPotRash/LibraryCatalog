@@ -72,18 +72,29 @@ namespace LibraryCatalog
                 Convert.ToInt32(BookYear.Text);
                 Convert.ToInt32(PuzzleElements.Text);
 
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Text file (*.txt)|*.txt";
-                if (saveFileDialog.ShowDialog() == true)
+                StorageObject bookObj = ObjectMaker.Make("Book", boxes[0].Text, boxes);
+                StorageObject puzzleObj = ObjectMaker.Make("Puzzle", boxes[5].Text, boxes);
+                StorageObject tableObj = ObjectMaker.Make("Table", boxes[8].Text, boxes);
+
+                if (bookObj.Check(boxes[0].Text) && puzzleObj.Check(boxes[5].Text) && tableObj.Check(boxes[8].Text))
                 {
-                    filePath = saveFileDialog.FileName;
-                    using (StreamWriter sw = new StreamWriter(filePath, false, System.Text.Encoding.Default))
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+                    if (saveFileDialog.ShowDialog() == true)
                     {
-                        foreach (TextBox detail in boxes)
+                        filePath = saveFileDialog.FileName;
+                        using (StreamWriter sw = new StreamWriter(filePath, false, System.Text.Encoding.Default))
                         {
-                            sw.WriteLine($"{detail.Name} : {detail.Text}");
+                            foreach (TextBox detail in boxes)
+                            {
+                                sw.WriteLine($"{detail.Name} : {detail.Text}");
+                            }
                         }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Please, fill all fields!");
                 }
             }
             catch(FormatException)
