@@ -55,19 +55,19 @@ namespace LibraryCatalog
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            details.Clear();
-            details.Add(BookName.Text);
-            details.Add(BookAuthor.Text);
-            details.Add(BookIllustrator.Text);
-            details.Add(BookPublisher.Text);
-            details.Add(BookYear.Text);
-            details.Add(PuzzleName.Text);
-            details.Add(PuzzleElements.Text);
-            details.Add(PuzzleCompany.Text);
-            details.Add(TableName.Text);
-            details.Add(TableDeveloper.Text);
-            details.Add(TableGameplay.Text);
-            details.Add(TablePlayers.Text);
+            boxes.Clear();
+            boxes.Add(BookName);
+            boxes.Add(BookAuthor);
+            boxes.Add(BookIllustrator);
+            boxes.Add(BookPublisher);
+            boxes.Add(BookYear);
+            boxes.Add(PuzzleName);
+            boxes.Add(PuzzleElements);
+            boxes.Add(PuzzleCompany);
+            boxes.Add(TableName);
+            boxes.Add(TableDeveloper);
+            boxes.Add(TableGameplay);
+            boxes.Add(TablePlayers);
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Text file (*.txt)|*.txt";
@@ -76,8 +76,10 @@ namespace LibraryCatalog
                 filePath = saveFileDialog.FileName;
                 using (StreamWriter sw = new StreamWriter(filePath, false, System.Text.Encoding.Default))
                 {
-                    foreach (string detail in details)
-                        sw.WriteLine(detail);
+                    foreach (TextBox detail in boxes)
+                    {
+                        sw.WriteLine($"{detail.Name} : {detail.Text}");
+                    }
                 }
             }
         }
@@ -109,7 +111,7 @@ namespace LibraryCatalog
                     int i = 0;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        boxes[i].Text = line;
+                        boxes[i].Text = line.Split(':')[1].Trim();
                         ++i;
                     }
                 }
