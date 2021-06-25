@@ -27,17 +27,23 @@ namespace LibraryCatalog
 
         private void BookBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            BookGrid.Visibility = Visibility.Visible;
+            PuzzleGrid.Visibility = Visibility.Hidden;
+            TableGrid.Visibility = Visibility.Hidden;
         }
 
         private void PuzzleBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            BookGrid.Visibility = Visibility.Hidden;
+            PuzzleGrid.Visibility = Visibility.Visible;
+            TableGrid.Visibility = Visibility.Hidden;
         }
 
         private void TableBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            BookGrid.Visibility = Visibility.Hidden;
+            PuzzleGrid.Visibility = Visibility.Hidden;
+            TableGrid.Visibility = Visibility.Visible;
         }
     }
 }

@@ -12,19 +12,19 @@
             <Button x:Name="PuzzleBtn" Content="Puzzle" HorizontalAlignment="Left" Margin="350,30,0,0" VerticalAlignment="Top" Width="75" Click="PuzzleBtn_Click" Background="#FF6151AA" BorderBrush="White" Foreground="White"/>
             <Button x:Name="TableBtn" Content="TableGame" HorizontalAlignment="Left" Margin="550,30,0,0" VerticalAlignment="Top" Width="75" Click="TableBtn_Click" Background="#FF6151AA" BorderBrush="White" Foreground="White"/>
         </Grid>
-        <Grid x:Name="BookGrid" HorizontalAlignment="Left" Height="329" Margin="10,80,0,0" VerticalAlignment="Top" Width="772">
+        <Grid x:Name="BookGrid" HorizontalAlignment="Left" Height="329" Margin="10,80,0,0" VerticalAlignment="Top" Width="772" Visibility="Hidden">
             <TextBox x:Name="BookName" HorizontalAlignment="Left" Height="23" Margin="100,50,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
             <TextBox x:Name="BookAuthor" HorizontalAlignment="Left" Height="23" Margin="100,100,0,0" TextWrapping="Wrap" Text="Author" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
             <TextBox x:Name="BookIllustrator" HorizontalAlignment="Left" Height="23" Margin="100,150,0,0" TextWrapping="Wrap" Text="Illustrator" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
             <TextBox x:Name="BookPublisher" HorizontalAlignment="Left" Height="23" Margin="100,200,0,0" TextWrapping="Wrap" Text="Publisher" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
             <TextBox x:Name="BookYear" HorizontalAlignment="Left" Height="23" Margin="100,250,0,0" TextWrapping="Wrap" Text="Year" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
         </Grid>
-        <Grid x:Name="PuzzleGrid" HorizontalAlignment="Left" Height="329" Margin="10,80,0,0" VerticalAlignment="Top" Width="772">
+        <Grid x:Name="PuzzleGrid" HorizontalAlignment="Left" Height="329" Margin="10,80,0,0" VerticalAlignment="Top" Width="772" Visibility="Hidden">
             <TextBox x:Name="PuzzleName" HorizontalAlignment="Left" Height="23" Margin="100,100,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
             <TextBox x:Name="PuzzleElements" HorizontalAlignment="Left" Height="23" Margin="100,150,0,0" TextWrapping="Wrap" Text="ElementsAmount" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
             <TextBox x:Name="PuzzleCompany" HorizontalAlignment="Left" Height="23" Margin="100,200,0,0" TextWrapping="Wrap" Text="Company" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
         </Grid>
-        <Grid x:Name="TableGrid" HorizontalAlignment="Left" Height="329" Margin="10,80,0,0" VerticalAlignment="Top" Width="772">
+        <Grid x:Name="TableGrid" HorizontalAlignment="Left" Height="329" Margin="10,80,0,0" VerticalAlignment="Top" Width="772" Visibility="Hidden">
             <TextBox x:Name="TableName" HorizontalAlignment="Left" Height="23" Margin="100,50,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
             <TextBox x:Name="TableDeveloper" HorizontalAlignment="Left" Height="23" Margin="100,100,0,0" TextWrapping="Wrap" Text="Developer" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
             <TextBox x:Name="TableGameplay" HorizontalAlignment="Left" Height="23" Margin="100,150,0,0" TextWrapping="Wrap" Text="Gameplay" VerticalAlignment="Top" Width="120" Background="#FF6151AA" Foreground="White"/>
