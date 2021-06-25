@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
+using LibraryCatalogLibrary;
 
 namespace LibraryCatalog
 {
@@ -23,6 +24,8 @@ namespace LibraryCatalog
     public partial class MainWindow : Window
     {
         string filePath;
+        List<string> details = new List<string>();
+        List<TextBox> boxes = new List<TextBox>();
 
         public MainWindow()
         {
@@ -52,20 +55,64 @@ namespace LibraryCatalog
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            details.Clear();
+            details.Add(BookName.Text);
+            details.Add(BookAuthor.Text);
+            details.Add(BookIllustrator.Text);
+            details.Add(BookPublisher.Text);
+            details.Add(BookYear.Text);
+            details.Add(PuzzleName.Text);
+            details.Add(PuzzleElements.Text);
+            details.Add(PuzzleCompany.Text);
+            details.Add(TableName.Text);
+            details.Add(TableDeveloper.Text);
+            details.Add(TableGameplay.Text);
+            details.Add(TablePlayers.Text);
+
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Text file (*.txt)|*.txt";
             if (saveFileDialog.ShowDialog() == true)
-                File.WriteAllText(saveFileDialog.FileName, "testTEXT");
+            {
+                filePath = saveFileDialog.FileName;
+                using (StreamWriter sw = new StreamWriter(filePath, false, System.Text.Encoding.Default))
+                {
+                    foreach (string detail in details)
+                        sw.WriteLine(detail);
+                }
+            }
         }
 
         private void OpenBtn_Click(object sender, RoutedEventArgs e)
         {
+            boxes.Clear();
+            boxes.Add(BookName);
+            boxes.Add(BookAuthor);
+            boxes.Add(BookIllustrator);
+            boxes.Add(BookPublisher);
+            boxes.Add(BookYear);
+            boxes.Add(PuzzleName);
+            boxes.Add(PuzzleElements);
+            boxes.Add(PuzzleCompany);
+            boxes.Add(TableName);
+            boxes.Add(TableDeveloper);
+            boxes.Add(TableGameplay);
+            boxes.Add(TablePlayers);
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Text file (*.txt)|*.txt";
             if (openFileDialog.ShowDialog() == true)
             {
-                File.ReadAllText(openFileDialog.FileName);
                 filePath = openFileDialog.FileName;
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    string line;
+                    int i = 0;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        boxes[i].Text = line;
+                        ++i;
+                    }
+                }
             }
         }
 

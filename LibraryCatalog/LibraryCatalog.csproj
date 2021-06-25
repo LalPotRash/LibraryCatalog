@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryCatalogLibrary\LibraryCatalogLibrary.csproj">
+      <Project>{678fe0e4-b4f4-4e6b-948f-0bcc936de5f7}</Project>
+      <Name>LibraryCatalogLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
