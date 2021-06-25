@@ -24,7 +24,6 @@ namespace LibraryCatalog
     public partial class MainWindow : Window
     {
         string filePath;
-        List<string> details = new List<string>();
         List<TextBox> boxes = new List<TextBox>();
 
         public MainWindow()
@@ -69,18 +68,28 @@ namespace LibraryCatalog
             boxes.Add(TableGameplay);
             boxes.Add(TablePlayers);
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text file (*.txt)|*.txt";
-            if (saveFileDialog.ShowDialog() == true)
+            try
             {
-                filePath = saveFileDialog.FileName;
-                using (StreamWriter sw = new StreamWriter(filePath, false, System.Text.Encoding.Default))
+                Convert.ToInt32(BookYear.Text);
+                Convert.ToInt32(PuzzleElements.Text);
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+                if (saveFileDialog.ShowDialog() == true)
                 {
-                    foreach (TextBox detail in boxes)
+                    filePath = saveFileDialog.FileName;
+                    using (StreamWriter sw = new StreamWriter(filePath, false, System.Text.Encoding.Default))
                     {
-                        sw.WriteLine($"{detail.Name} : {detail.Text}");
+                        foreach (TextBox detail in boxes)
+                        {
+                            sw.WriteLine($"{detail.Name} : {detail.Text}");
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please, use int, not string!");
             }
         }
 
